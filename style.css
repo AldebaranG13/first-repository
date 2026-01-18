@@ -1,0 +1,722 @@
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --bg-angle: 90deg;
+    --text-color: #d1d9e6;
+    --primary-blue: #144272;
+    --dark-blue: #0a1929;
+    --accent-blue: #2C5282;
+}
+
+body {
+    /* 1. Define the variable start point here just in case */
+    --bg-angle: 0deg; 
+
+    /* 2. The Gradient */
+    background: linear-gradient(
+        var(--bg-angle), 
+        hsla(218, 80%, 2%, 1) 0%,   /* The Deep Black/Blue */
+        hsla(213, 53%, 25%, 1) 100% /* The Lighter Blue (I bumped it slightly so you can see it) */
+    );
+
+    /* 3. Lock it so it doesn't scroll away */
+    background-attachment: fixed;
+
+    /* 4. Layout stuff */
+    color: var(--text-color);
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    min-height: 100vh; /*revert to original height*/
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+/* --- COMPONENT: CARD --- */
+.card {
+    background-color: rgba(10, 25, 41, 0.75);
+    padding: 50px;
+    border-radius: 16px;
+    border: 1px solid var(--accent-blue);
+    text-align: center;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+    width: 400px;
+    
+    /* Center the card in the middle of the scroll area */
+    margin: 200px auto; 
+}
+
+/* --- TYPOGRAPHY --- */
+h1 {
+    font-family: 'El Messiri', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(20, 66, 114, 0.8);
+}
+
+h3 {
+    color: var(--accent-blue);
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #a0aec0; /* Slightly dimmer text */
+}
+
+/* --- COMPONENT: INPUT --- */
+input {
+    background: rgba(1, 4, 9, 0.6);
+    border: 1px solid var(--primary-blue);
+    border-radius: 4px;
+    color: white;
+    padding: 12px;
+    width: 85%;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'El Messiri', sans-serif;
+    letter-spacing: 1px;
+    outline: none;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+input:focus {
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(44, 82, 130, 0.4);
+    background: rgba(1, 4, 9, 0.8);
+}
+
+/* --- COMPONENT: BUTTON --- */
+button {
+    background-color: var(--primary-blue);
+    color: var(--text-color);
+    border: none;
+    border-radius: 4px;
+    padding: 12px 30px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: var(--accent-blue);
+    box-shadow: 0 0 20px var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* --- COMPONENT: PULSE ICON --- */
+.pulse-circle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-blue);
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 66, 114, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(20, 66, 114, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(20, 66, 114, 0); }
+}
+
+/* --- EXTRA: DATA LIST (For Preview 3) --- */
+.data-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.data-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(44, 82, 130, 0.3);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.data-list li span:first-child {
+    color: var(--accent-blue);
+}
+/*for messiri font*/
+.font-messiri {
+    font-family: 'El Messiri', sans-serif;
+}
+/*the header and text inside it*/
+.header {
+    display: flex;
+    width: fit-content;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    align-items: flex-end;
+    flex-direction: column;
+}
+.header h1 {
+    font-size: 100px;
+    margin: 0;
+    line-height: 1;
+}
+.header p {
+    font-size: 20px;
+    margin-top: 5px;
+}
+/*material symbols rounded icon style*/
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Matches your optical size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+}
+/*navbar*/
+/* Change .navbar to #navbar-placeholder */
+#navbar-placeholder {
+    position: sticky; 
+    top: 0;           
+    z-index: 1000;
+}
+
+/* Keep .navbar for the visuals, but remove the sticky lines from it */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
+    height: 70px;
+    padding: 0 40px;
+    background: rgba(0, 0, 0, 0.8); 
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center; /* Add this */
+    flex-wrap: nowrap;   /* Add this */
+}
+
+/* --- 2. THE LINKS (Fixes Blue Color, Underline, & Icon Alignment) --- */
+.nav-links a {
+    display: flex;
+    flex-direction: column;       /*make icon vertical*/
+    align-items: center; /* Centers them vertically */
+    gap: 1px;            /* Gap between Icon and Text */
+    
+    text-decoration: none; /* KILLS THE UNDERLINE */
+    color: #d1d9e6;        /* Sets color to Grey/White (Change this if you want) */
+    font-size: 14px;       /* Keeps text neat */
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+/* Optional: Hover Effect */
+.nav-links a:hover {
+    color: #4da6ff; /* Blue on hover */
+}
+.logo-font-messiri {
+    font-size: 50px;
+    font-family: 'El Messiri'
+}
+/*le footer*/
+.footer {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);   /* dark bg */
+    border-top: 1px solid var(--accent-blue); /* nice top border */
+    padding: 40px 20px;               /* spacious padding */
+    text-align: center;               /* centers everything */
+    margin-top: auto;                 /* pushes to bottom */
+    position: relative;
+    z-index: 10;
+}
+
+.footer p {
+    font-size: 20px;
+    margin: 8px 0;         /* space between lines */
+}
+
+/* style that email link so it stands out! */
+.footer-link {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.footer-link:hover {
+    color: #4da6ff;       /* bright blue on hover */
+    text-shadow: 0 0 10px rgba(77, 166, 255, 0.5);
+}
+/*link improvisation*/
+a {
+    text-decoration: none;       /* Kills underline everywhere */
+    color: var(--text-color);    /* Default color */
+    transition: all 0.3s ease;   /* Smooth animation for everyone */
+    cursor: pointer;
+}
+
+/* Global Hover Effect */
+a:hover {
+    color: var(--accent-blue);
+    text-shadow: 0 0 8px rgba(77, 166, 255, 0.6); /* The cool glow */
+}
+/*navbar profpic*/
+#nav-user-photo {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid var(--accent-blue);
+}
+
+/* Optional: This aligns the name and photo perfectly */
+#nav-user-item div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/*post input*/
+#post-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    font-family: 'Cairo', sans-serif;
+    resize: none;
+    outline: none;
+    min-height: 80px;
+
+    /*no overflow*/
+    overflow-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap; 
+}
+#messages-display > div {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+#messages-display > div:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    transform: translateY(-2px);
+    border-color: rgba(77, 166, 255, 0.2) !important;
+}
+/* 1. The Container */
+#messages-display {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch; /* Change from center to stretch */
+}
+
+/* 2. The Post Card */
+.post-card {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    
+    /* THE FORCE WIDE RULE */
+    width: 600px;          /* Forces it to be 600px even with 1 word */
+    max-width: 100%;       /* If the phone screen is smaller than 600px, shrink to fit */
+    margin: 0 auto;        /* Keep it centered */
+    
+    box-sizing: border-box;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+@media (max-width: 800px) {
+    /* This forces them to stack on top of each other again on phones */
+    div[style*="display: flex"] {
+        flex-direction: column-reverse !important;
+    }
+}
+#post-btn {
+    /* Colors & Font */
+    background-color: #4da6ff;
+    color: white;
+    font-weight: bold;
+    
+    /* Shape & Border */
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    
+    /* Layout Fixes (The "Giant Button" fix) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: fit-content;
+    margin: 0;
+    
+    /* Interaction */
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /*anti buttonification thingamajig*/
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 15px;
+    padding: 8px 20px;
+    line-height: 1;
+}
+
+/* Make the icon inside look right */
+#post-btn .material-symbols-rounded {
+    font-size: 20px;
+}
+
+/* Add a cool hover effect (Since we're in CSS now!) */
+#post-btn:hover {
+    background-color: #3580cc;
+    transform: scale(1.02); /* Instead of translateY, a tiny grow feels more modern */
+    box-shadow: 0 0 15px rgba(77, 166, 255, 0.4);
+}
+
+/* How it looks when it's disabled (Cooldown) */
+#post-btn:disabled {
+    background-color: #636e72;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+.photo-upload-btn {
+    cursor: pointer;
+    color: #4da6ff;
+    background: rgba(77, 166, 255, 0.1);
+    
+    /* Layout */
+    display: inline-flex;  /* inline-flex prevents it from taking up the whole line */
+    align-items: center;
+    gap: 6px;
+    
+    /* Sizing - Adjust these to make it smaller/bigger */
+    padding: 6px 15px; 
+    font-size: 14px;
+    border-radius: 20px;
+    
+    transition: 0.3s ease;
+
+    /*anti buttonification thingamajig*/
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 15px;
+    padding: 8px 20px;
+    line-height: 1;
+
+    /*dont kiss le char count thingamajig*/
+    margin-right: auto;
+
+    /*idk thing*/
+    flex-grow: 1;
+}
+
+.photo-upload-btn:hover {
+    background: rgba(77, 166, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.photo-upload-btn .material-symbols-rounded {
+    font-size: 20px; /* Controls icon size separately */
+}
+#char-count {
+    font-size: 12px;
+    color: #636e72;
+    margin: 0 auto 0 auto;
+    white-space: nowrap;
+    display: inline-block;
+    width: 60px;
+    text-align: right;
+    margin-right: 15px;
+}
+/*news*/
+#news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px; /* Limits how wide the news section gets */
+    margin: 0 auto;    /* Centers the whole grid on the screen */
+    padding: 20px;
+}
+
+/* 2. THE CARD - Vertical stack with natural sizing */
+#news-grid .post-card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(13, 25, 41, 0.9);
+    border: 1px solid rgba(77, 166, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    height: fit-content; /* Card only grows as tall as the content */
+}
+
+/* 3. THE IMAGE - Fill width, natural height */
+#news-grid .post-card img {
+    width: 100%;       /* Fill the card width */
+    height: auto;      /* Respect the image's original shape */
+    display: block;
+    border-bottom: 2px solid #4da6ff;
+}
+
+/* 4. THE TEXT AREA */
+#news-grid .post-card div {
+    padding: 20px;
+    text-align: left; /* Headlines and summary stay left-aligned */
+}
+
+#news-grid .post-card h3 {
+    margin: 0 0 10px 0;
+    color: #4da6ff;
+    font-size: 1.4rem;
+}
+#markdown-body img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3)
+}
+/*credits*/
+#credits-grid {
+    display: grid;
+    /* Use 250px so you get 3-4 cards per row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    padding: 50px 20px;
+}
+
+/* --- NEW CREDIT CARD STYLE --- */
+.credit-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(77, 166, 255, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    
+    /* These lines are key! */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Fills the grid slot, but doesn't force 600px */
+}
+
+.credit-card:hover {
+    background: rgba(77, 166, 255, 0.08);
+    transform: translateY(-10px);
+    border-color: #4da6ff;
+}
+
+.credit-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #4da6ff;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.credit-card h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #fff;
+}
+
+.credit-card .role {
+    font-size: 0.8rem;
+    color: #4da6ff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.credit-card .quote {
+    font-style: italic;
+    color: #d1d9e6;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+/* Styling for the credit profile pics */
+#credits-grid img {
+    background-color: #1a1a1a; /* Dark background while loading */
+    transition: transform 0.3s ease;
+}
+
+#credits-grid .post-card:hover img {
+    transform: scale(1.1) rotate(5deg); /* Subtle 'Pop' effect */
+    border-color: #fff;
+}
+/*post anim*/
+.drop-in {
+    /* One animation, no delay, smooth timing */
+    animation: neuralSkyfall 1s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    
+    /* Crucial: prevents the post from 'blinking' into view at the start */
+    opacity: 0; 
+    position: relative;
+    z-index: 1000;
+    overflow: visible !important; /* Allows it to be seen while falling from 'above' */
+}
+
+@keyframes neuralSkyfall {
+    0% {
+        opacity: 0;
+        transform: translateY(-800px) scale(0.9); /* Starts way up high */
+        max-height: 0;
+        margin-bottom: 0;
+        filter: blur(20px);
+    }
+    10% {
+        opacity: 1; /* Fades in very quickly as it starts moving */
+        max-height: 500px; /* Opens the gap immediately */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        max-height: 1000px; /* Fully open */
+        margin-bottom: 20px;
+        filter: blur(0);
+    }
+}
+.delete-btn {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+/*honestly i dont care abt where i put stylings again*/
+.post-image {
+    width: 100%;            /* Fills the width of the post card */
+    max-height: 400px;      /* Stops it from being a giant skyscraper */
+    object-fit: cover;      /* Keeps the aspect ratio pretty */
+    border-radius: 12px;    /* Matches your card style */
+    margin-top: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+/* THE MAIN CONTAINER */
+.featured-card {
+    display: flex; /* Creates the two columns */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(77, 166, 255, 0.15);
+    border-radius: 24px;
+    overflow: hidden; /* Clips the image corners to match the card */
+    margin: 20px 50px 50px;
+    min-height: 350px;
+    transition: all 0.4s ease;
+}
+
+.featured-card:hover {
+    border-color: #4da6ff;
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 30px rgba(77, 166, 255, 0.1);
+}
+
+/* LEFT SIDE: TEXT */
+.featured-left {
+    flex: 1.2; /* Takes up 60% of the space */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers text vertically */
+}
+
+.featured-header {
+    font-size: 2.5rem;
+    color: #4da6ff;
+    margin: 0 0 15px 0;
+    font-family: 'El Messiri', sans-serif;
+    line-height: 1.1;
+}
+
+.featured-text {
+    color: #d1d9e6;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0 0 25px 0;
+    opacity: 0.8;
+}
+
+/* RIGHT SIDE: IMAGE */
+.featured-right {
+    flex: 0.8; /* Takes up 40% of the space */
+    position: relative;
+}
+
+.featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This is the secret—it crops the image perfectly */
+    filter: brightness(0.8) contrast(1.1);
+    transition: transform 0.6s ease;
+}
+
+.featured-card:hover .featured-image {
+    transform: scale(1.05); /* Subtle zoom on hover */
+    filter: brightness(1);
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 850px) {
+    .featured-card {
+        flex-direction: column; /* Stacks image under text on phones */
+    }
+    .featured-header {
+        font-size: 1.8rem;
+    }
+    .featured-right {
+        height: 200px; /* Give it a set height on mobile */
+    }
+}
+.inline-link {
+    color: #4da6ff;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.inline-link:hover {
+    border-bottom: 1px solid #4da6ff;
+    text-shadow: 0 0 8px rgba(77, 166, 255, 0.5);
+}

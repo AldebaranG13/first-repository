@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axon | Redirecting...</title>
+    <style>
+        body { background: #0a0a0a; color: #4da6ff; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'El Messiri', sans-serif; margin: 0; }
+        .loader { border: 3px solid rgba(77, 166, 255, 0.1); border-top: 3px solid #4da6ff; border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div style="text-align: center;">
+        <div class="loader" style="margin: 0 auto 20px;"></div>
+        <p>Connecting to Axon...</p>
+    </div>
+
+    <script>
+        // The "Switchboard" Logic
+        const user = localStorage.getItem('axonUser');
+        if (user) {
+            window.location.href = 'home.html';
+        } else {
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

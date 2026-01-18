@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - Axon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=El+Messiri:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="header">
+        <h1 class="font-messiri">Axon Forum</h1>
+        <p class="font-messiri">By AldebaranG13</p>
+    </div>
+
+    <div id="navbar-placeholder"></div>
+
+    <main style="padding: 20px 5%; max-width: 1100px; margin: 0 auto;">
+    
+        <header style="margin-bottom: 30px; text-align: center;">
+            <h1 class="font-messiri" style="font-size: 2.5rem; color: #fff;">Student Forum</h1>
+            <p style="color: #a0aec0;">Discuss, ask, and share with other طُلَّاب</p>
+        </header>
+
+        <div style="display: flex; flex-direction: row-reverse; gap: 30px; justify-content: center; align-items: flex-start; max-width: 1000px; margin: 0 auto;">
+
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); padding: 20px; border-radius: 20px; width: 450px; box-sizing: border-box; position: sticky; top: 100px;">
+            <div style="display: flex; gap: 15px;">
+                <img id="composer-img" src="" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #4da6ff; object-fit: cover;">
+                
+                <div style="flex: 1;">
+                    <textarea id="post-input" placeholder="What's on your mind?" maxlength="280"></textarea>
+                    
+                    <div id="image-preview-container" style="display: none; position: relative; margin-top: 10px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
+                        <img id="image-preview" src="" style="width: 100%; max-height: 300px; object-fit: cover; display: block;">
+    
+                        <button id="remove-img-btn" style="position: absolute; top: 5px; right: 10px; background: transparent !important; border: none !important; color: #ff4d4d; cursor: pointer; font-size: 30px; font-weight: bold; line-height: 1; padding: 0; box-shadow: none !important;">&times;</button>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; width: 100%; padding: 0 20px;">
+    
+                        <label for="image-input" class="photo-upload-btn">
+                            <span class="material-symbols-rounded">image</span>
+                            Add Photo
+                        </label>
+
+                        <input type="file" id="image-input" accept="image/*" style="display: none;">
+
+                        <span id="char-count">0 / 280</span>
+
+                        <button id="post-btn">Post</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="messages-display" style="width: 100%; flex: 1; flex-direction: column; gap: 20px; align-items: stretch;"></div>
+        </div>
+        <div style="text-align: center; margin: 30px 0;">
+            <button id="load-more-btn" style="
+                background: rgba(255,255,255,0.05); 
+                color: #4da6ff; 
+                border: 1px solid rgba(77, 166, 255, 0.3); 
+                padding: 12px 24px; 
+                border-radius: 12px; 
+                cursor: pointer; 
+                display: none; 
+                align-items: center; 
+                justify-content: center; 
+                gap: 10px; 
+                margin: 0 auto;
+                font-weight: 600;
+                transition: 0.3s;
+            ">
+                <span class="material-symbols-rounded" style="font-size: 20px;">refresh</span> 
+                Load More
+            </button>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>

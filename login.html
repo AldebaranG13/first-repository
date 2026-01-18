@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Axon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=El+Messiri:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0">
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* just a tiny override to make sure the login box is centered 
+           and we don't scroll 300vh on the login page */
+        body {
+            min-height: 100vh; 
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        .card {
+            /* resetting the margin from your css just for this page so it centers perfectly */
+            margin: 0; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="pulse-circle"></div>
+
+        <h1 class="font-messiri" style="font-size: 40px;">Axon</h1>
+        <h3>Login</h3>
+        
+        <p style="margin-bottom: 30px;">
+            Welcome to Axon<br>Please login with your Google account to continue.
+        </p>
+
+        <button id="google-login-btn">
+            <span class="material-symbols-rounded" style="vertical-align: middle; margin-right: 8px; font-size: 18px;">login</span>
+            Login with Google
+        </button>
+        
+        <p id="error-message" style="color: #ff6b6b; font-size: 0.8em; margin-top: 15px;"></p>
+    </div>
+
+    <script type="module" src="script.js"></script>
+
+</body>
+</html>

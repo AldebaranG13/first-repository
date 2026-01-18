@@ -1,0 +1,7 @@
+{
+  "hosting": {
+    "public": ".",
+    "predeploy": "node generate-sitemap.js",
+    "cleanUrls": true
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 // SIGNAL LOST</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;700&family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* 404-specific layout adjustments */
+        .error-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Using your .card logic but making it flexible for 404 */
+        .error-card {
+            margin: 0 !important; /* Overriding your 200px margin-top for centering */
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .huge-code {
+            font-size: 120px !important; /* Even bigger than your header h1 */
+            color: var(--accent-blue);
+            line-height: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .status-tag {
+            display: inline-block;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="error-wrapper">
+        <div class="card error-card">
+            <div class="pulse-circle" style="background-color: #ff4d4d;"></div>
+            
+            <div class="status-tag">ERR_PAGE_NOT_FOUND</div>
+            
+            <h1 class="huge-code font-messiri">404</h1>
+            
+            <p style="margin-bottom: 30px;">
+                The neural link to this page has been severed. The requested coordinates do not exist within the Axon Files.
+            </p>
+
+            <a href="home.html">
+                <button id="post-btn" style="margin: 0 auto;">
+                    <span class="material-symbols-rounded">home</span>
+                    Return to Home
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
